@@ -1,0 +1,221 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 09/07/2012
+//
+parameter bModal
+local f
+f = new DataEntryForm()
+if (bModal)
+   f.mdi = false // ensure not MDI
+   f.readModal()
+else
+   f.open()
+endif
+
+class DataEntryForm of FORM
+   with (this)
+      height = 30.96
+      left = 30.6667
+      top = 0.12
+      width = 112.6667
+      text = "Qaid"
+      menuFile = "DataEntry.mnu"
+      escExit = false
+      scrollBar = 2	// Auto
+   endwith
+
+   this.QAIDDATA1 = new DATABASE()
+   this.QAIDDATA1.parent = this
+   with (this.QAIDDATA1)
+      left = 42.0
+      top = -0.04
+      databaseName = "QAIDDATA"
+      active = true
+   endwith
+
+   this.QAID1 = new QUERY()
+   this.QAID1.parent = this
+   with (this.QAID1)
+      left = 36.0
+      top = -1.0
+      database = form.qaiddata1
+      sql = "select * from qaid.dbf"
+      active = true
+   endwith
+
+   this.ENGINEER1 = new QUERY()
+   this.ENGINEER1.parent = this
+   with (this.ENGINEER1)
+      left = 59.3333
+      top = 10.32
+      database = form.qaiddata1
+      sql = "select * from engineer.dbf"
+      active = true
+   endwith
+
+   this.TEXTQAID_NO1 = new TEXT(this)
+   with (this.TEXTQAID_NO1)
+      height = 1.0
+      left = 1.0
+      top = 3.0
+      width = 8.9167
+      wrap = false
+      alignVertical = 2	// Bottom
+      text = "QAID_No"
+   endwith
+
+   this.ENTRYFIELDQAID_NO1 = new ENTRYFIELD(this)
+   with (this.ENTRYFIELDQAID_NO1)
+      dataLink = form.qaid1.rowset.fields["qaid_no"]
+      height = 1.0
+      left = 1.0
+      top = 4.0
+      width = 13.0
+   endwith
+
+   this.TEXTENGINEER_NO1 = new TEXT(this)
+   with (this.TEXTENGINEER_NO1)
+      height = 1.0
+      left = 15.0
+      top = 3.0
+      width = 11.787
+      wrap = false
+      alignVertical = 2	// Bottom
+      text = "Engineer_No"
+   endwith
+
+   this.SPINBOXENGINEER_NO1 = new SPINBOX(this)
+   with (this.SPINBOXENGINEER_NO1)
+      dataLink = form.qaid1.rowset.fields["engineer_no"]
+      height = 1.0
+      left = 15.0
+      top = 4.0
+      width = 5.0
+      rangeMax = 100
+      rangeMin = 1
+   endwith
+
+   this.TEXTIMPORTANCE1 = new TEXT(this)
+   with (this.TEXTIMPORTANCE1)
+      height = 1.0
+      left = 27.7778
+      top = 3.0
+      width = 10.2685
+      wrap = false
+      alignVertical = 2	// Bottom
+      text = "Importance"
+   endwith
+
+   this.SPINBOXIMPORTANCE1 = new SPINBOX(this)
+   with (this.SPINBOXIMPORTANCE1)
+      dataLink = form.qaid1.rowset.fields["importance"]
+      height = 1.0
+      left = 27.7778
+      top = 4.0
+      width = 5.0
+      rangeMax = 100
+      rangeMin = 1
+   endwith
+
+   this.CHECKBOXOPEN1 = new CHECKBOX(this)
+   with (this.CHECKBOXOPEN1)
+      dataLink = form.qaid1.rowset.fields["open"]
+      height = 1.12
+      left = 40.0
+      top = 3.88
+      width = 17.8889
+      text = "Open"
+   endwith
+
+   this.TEXTSUMMARY1 = new TEXT(this)
+   with (this.TEXTSUMMARY1)
+      height = 1.0
+      left = 55.8889
+      top = 3.08
+      width = 8.8889
+      wrap = false
+      alignVertical = 2	// Bottom
+      text = "Summary"
+   endwith
+
+   this.ENTRYFIELDSUMMARY1 = new ENTRYFIELD(this)
+   with (this.ENTRYFIELDSUMMARY1)
+      dataLink = form.qaid1.rowset.fields["summary"]
+      height = 1.0
+      left = 55.6667
+      top = 4.08
+      width = 46.0
+   endwith
+
+   this.TEXTDETAIL1 = new TEXT(this)
+   with (this.TEXTDETAIL1)
+      height = 1.0
+      left = 1.2222
+      top = 11.44
+      width = 5.6667
+      wrap = false
+      alignVertical = 2	// Bottom
+      text = "Detail"
+   endwith
+
+   this.EDITORDETAIL1 = new EDITOR(this)
+   with (this.EDITORDETAIL1)
+      height = 18.16
+      left = 1.2222
+      top = 12.44
+      width = 108.0
+      dataLink = form.qaid1.rowset.fields["detail"]
+   endwith
+
+   this.TITLE1 = new TEXT(this)
+   with (this.TITLE1)
+      height = 2.0
+      left = 1.0
+      top = 0.0
+      width = 9.3333
+      variableHeight = true
+      colorNormal = "maroon/BtnFace"
+      fontSize = 18.0
+      fontBold = true
+      text = "Qaid"
+   endwith
+
+   this.GRID1 = new GRID(this)
+   with (this.GRID1)
+      dataLink = form.engineer1.rowset
+      bgColor = "WindowText"
+      height = 5.8
+      left = 1.4444
+      top = 5.36
+      width = 82.6667
+   endwith
+
+   this.REPORTVIEWER1 = new REPORTVIEWER(this)
+   with (this.REPORTVIEWER1)
+      height = 29.12
+      left = 2.1111
+      top = 0.44
+      width = 108.6667
+      pageno = 2
+      filename = "OpenIssues.rep"
+   endwith
+
+   this.TABBOX1 = new TABBOX(this)
+   with (this.TABBOX1)
+      onLeftMouseUp = class::TABBOX1_ONLEFTMOUSEUP
+      id = 118
+      height = 1.0
+      left = 0.0
+      top = 29.96
+      width = 112.6667
+      dataSource = 'ARRAY {"Data Entry","Open Issues Report"}'
+   endwith
+
+   this.rowset = this.qaid1.rowset
+
+   function TABBOX1_onLeftMouseUp(flags, col, row)
+      form.pageNo = this.curSel
+      return
+
+endclass
+

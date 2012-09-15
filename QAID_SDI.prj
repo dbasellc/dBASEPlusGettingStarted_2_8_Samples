@@ -1,0 +1,110 @@
+Project File generated 09/07/2012 14:04:47
+
+[Project]
+Name=DataEntrySDI
+DefaultDir=.
+MainProjectFileName=SDIDataEntry.prg
+Parameters=
+Author=
+Description=
+Preprocessor=
+LogFileName=C:\dBASEPlusGettingStarted2.8\QAID.log
+PrefPathFormat=R
+TargetFileName=DataEntrySDI.exe
+IconFileName=
+SplashFileName=
+MostRecentSelectedFileName=
+WebApplication=false
+DeoOption=False
+enableUAC=0
+inioption=1
+
+[Contents]
+SDIDataEntry.prg,0,0,0, 
+DataEntry.wfm,1,0,0, 
+DataEntry.mnu,1,0,0, 
+OpenIssues.rep,1,0,0, 
+QAIDOpenIssues.sql,0,0,0, 
+
+[DEO]
+
+[INNO]
+ProjectExeFileName=C:\dBASEPlusGettingStarted2.8\DataEntrySDI.exe
+ProjectMainFileName=\Project\Explorer.iss
+ProjectdBaseVersion=dBASE PLUS 2.80  b2215 (04/25/2012-EN120425)
+DefaultDirName={pf}\{#AppName}
+AppName=DataEntry
+AppVersion=1.0.0.0
+SM_dBASERuntime=false
+dBPlus=true
+dBSeparat=false
+Resource=false
+dBASELang=EN
+dBaseRuntimeDir=C:\Program Files (x86)\dBASE\Plus\Runtime\PlusRuntime-b2215.exe
+XPLook=false
+dBaseBuild=2215
+dBaseVersion=2800
+SetupLang=en
+SepDestDir=false
+BDEGroupEntries=false
+dBProgressbar=false
+dBProgressbox=false
+dBSilent=false
+dBDestRuntime=
+dBDestBDE=
+SourceFolder=C:\dBASEPlusGettingStarted2.8
+InnoScriptname=\Project\Explorer.iss
+LastDBVersion=2800
+LastDBLanguage=EN
+LastCreateDate=
+IncDispGroup=true
+IncUninsEntry=true
+IncDesktopEntry=false
+IncQuickEntry=false
+ENLicense=
+ENBefore=
+ENAfter=
+DELicense=
+DEBefore=
+DEAfter=
+ESLicense=
+ESBefore=
+ESAfter=
+ITLicense=
+ITBefore=
+ITAfter=
+JALicense=
+JABefore=
+JAAfter=
+FRLicense=
+FRBefore=
+FRAfter=
+DKLicense=
+DKBefore=
+DKAfter=
+PLLicense=
+PLBefore=
+PLAfter=
+NLLicense=
+NLBefore=
+NLAfter=
+UninsHS=true
+UninsHSAppName=
+UninsHSAppId=
+UninsHSLanguages=All
+BDEUseSettings=false
+BDEMaxFileHandle=255
+BDELangDriver='ascii' ANSI
+BDELevel=7
+BDEMemoBlockSize=1024
+BDEMDXBlockSize=1024
+INNOINI=false
+INIERRORHANDLING=false
+INITRAP=true
+ININOBDE=false
+Icon1={group}\{#AppName} >> {app}\
+Files1=DataEntry.mnO >> DestDir: {app}
+Files2=QAIDOpenIssues.sql >> DestDir: {app}
+Files3=DataEntry.wfO >> DestDir: {app}
+Files4=OpenIssues.reO >> DestDir: {app}
+Files5=C:\dBASEPlusGettingStarted2.8\DataEntrySDI.exe >> DestDir: {app}

@@ -1,0 +1,264 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 09/07/2012
+//
+local r
+r = new OPENISSUESREPORT()
+r.render()
+
+class OPENISSUESREPORT of REPORT
+   with (this)
+      title = "Qaidopenissues"
+      autoSort = false
+   endwith
+
+   this.QAIDDATA1 = new DATABASE()
+   this.QAIDDATA1.parent = this
+   with (this.QAIDDATA1)
+      left = -12.0
+      top = -12.0
+      databaseName = "QAIDDATA"
+      active = true
+   endwith
+
+   this.QAIDOPENISSUES1 = new QUERY()
+   this.QAIDOPENISSUES1.parent = this
+   with (this.QAIDOPENISSUES1)
+      left = -12.0
+      top = -12.0
+      database = form.form.qaiddata1
+      sql = 'SELECT Engineer.FirstName, Engineer.LastName, Qaid.QAID_No, Qaid.Importance, Qaid.Summary FROM "qaid.dbf" Qaid INNER JOIN "engineer.dbf" Engineer ON  (Qaid.Engineer_No = Engineer.Engineer_No)   WHERE  Qaid.Open = TRUE   ORDER BY LastName'
+      requestLive = false
+      active = true
+   endwith
+
+   this.STREAMSOURCE1 = new STREAMSOURCE(this)
+   this.STREAMSOURCE1.GROUP1 = new GROUP(this.STREAMSOURCE1)
+   with (this.STREAMSOURCE1.GROUP1)
+      groupBy = "LastName"
+   endwith
+
+   this.STREAMSOURCE1.GROUP1.footerBand.TEXT1 = new TEXT(this.STREAMSOURCE1.GROUP1.footerBand)
+   with (this.STREAMSOURCE1.GROUP1.footerBand.TEXT1)
+      height = 235.0
+      left = 0.0
+      top = 0.0
+      width = 1652.0
+      prefixEnable = false
+      colorNormal = "b+"
+      text = "Count of Qaid No: "
+   endwith
+
+   this.STREAMSOURCE1.GROUP1.footerBand.TEXT2 = new TEXT(this.STREAMSOURCE1.GROUP1.footerBand)
+   with (this.STREAMSOURCE1.GROUP1.footerBand.TEXT2)
+      height = 235.0
+      left = 1704.0
+      top = 0.0
+      width = 2000.0
+      variableHeight = true
+      prefixEnable = false
+      colorNormal = "b+"
+      alignHorizontal = 2	// Right
+      text = {||this.parent.parent.agCount({||this.parent.rowset.fields["QAID_No"].value})}
+   endwith
+
+   this.STREAMSOURCE1.GROUP1.headerBand.LINE1 = new LINE(this.STREAMSOURCE1.GROUP1.headerBand)
+   with (this.STREAMSOURCE1.GROUP1.headerBand.LINE1)
+      canRender = {||this.parent.context == 0}
+      left = 0.0
+      right = 12960.0
+      top = 96.0
+      bottom = 96.0
+      width = 1
+   endwith
+
+   this.STREAMSOURCE1.GROUP1.headerBand.TEXT2 = new TEXT(this.STREAMSOURCE1.GROUP1.headerBand)
+   with (this.STREAMSOURCE1.GROUP1.headerBand.TEXT2)
+      height = 296.0
+      left = 68.0
+      top = 152.0
+      width = 11764.0
+      prefixEnable = false
+      colorNormal = "b+"
+      text = {||"<H3>  " + TRIM(this.parent.parent.parent.rowset.fields["FirstName"].value) + " " + this.parent.parent.parent.rowset.fields["LastName"].value + "</H3>"}
+   endwith
+
+   with (this.STREAMSOURCE1.detailBand)
+      height = 250.0
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TITLETEXTQAID_NO1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TITLETEXTQAID_NO1)
+      canRender = {||this.parent.firstOnFrame}
+      height = 296.0
+      left = 0.0
+      top = 0.0
+      width = 1192.0
+      prefixEnable = false
+      alignHorizontal = 2	// Right
+      suppressIfBlank = true
+      text = "<H3>Qaid No</H3>"
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TEXTQAID_NO1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TEXTQAID_NO1)
+      height = 1.0
+      left = 0.0
+      top = 296.0
+      width = 1192.0
+      variableHeight = true
+      prefixEnable = false
+      alignHorizontal = 2	// Right
+      text = {||this.form.qaidopenissues1.rowset.fields["QAID_No"].value}
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TITLETEXTIMPORTANCE1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TITLETEXTIMPORTANCE1)
+      canRender = {||this.parent.firstOnFrame}
+      height = 296.0
+      left = 1308.0
+      top = 0.0
+      width = 1576.0
+      prefixEnable = false
+      alignHorizontal = 2	// Right
+      suppressIfBlank = true
+      text = "<H3>Importance</H3>"
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TEXTIMPORTANCE1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TEXTIMPORTANCE1)
+      height = 1.0
+      left = 1312.0
+      top = 296.0
+      width = 1576.0
+      variableHeight = true
+      prefixEnable = false
+      alignHorizontal = 2	// Right
+      text = {||this.form.qaidopenissues1.rowset.fields["Importance"].value}
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TITLETEXTSUMMARY1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TITLETEXTSUMMARY1)
+      canRender = {||this.parent.firstOnFrame}
+      height = 296.0
+      left = 3000.0
+      top = 0.0
+      width = 9840.0
+      prefixEnable = false
+      suppressIfBlank = true
+      text = "<H3>Summary</H3>"
+   endwith
+
+   this.STREAMSOURCE1.detailBand.TEXTSUMMARY1 = new TEXT(this.STREAMSOURCE1.detailBand)
+   with (this.STREAMSOURCE1.detailBand.TEXTSUMMARY1)
+      height = 1.0
+      left = 3000.0
+      top = 296.0
+      width = 9840.0
+      variableHeight = true
+      prefixEnable = false
+      text = {||this.form.qaidopenissues1.rowset.fields["Summary"].value}
+   endwith
+
+   this.PAGETEMPLATE1 = new PAGETEMPLATE(this)
+   with (this.PAGETEMPLATE1)
+      height = 12240.0
+      width = 15840.0
+      marginTop = 1092.0
+      marginLeft = 1080.0
+      marginBottom = 1068.0
+      marginRight = 1080.0
+      gridLineWidth = 0
+   endwith
+
+   this.PAGETEMPLATE1.STREAMFRAME1 = new STREAMFRAME(this.PAGETEMPLATE1)
+   with (this.PAGETEMPLATE1.STREAMFRAME1)
+      height = 7992.0
+      left = 360.0
+      top = 1368.0
+      width = 12960.0
+      form.STREAMFRAME1 = form.pagetemplate1.streamframe1
+   endwith
+
+   this.PAGETEMPLATE1.TEXT1 = new TEXT(this.PAGETEMPLATE1)
+   with (this.PAGETEMPLATE1.TEXT1)
+      height = 696.0
+      left = 3492.0
+      top = 360.0
+      width = 6132.0
+      prefixEnable = false
+      text = "<h1 align=center>Qaid Open issues</h1>"
+      form.TEXT1 = form.pagetemplate1.text1
+   endwith
+
+   this.PAGETEMPLATE1.TEXT2 = new TEXT(this.PAGETEMPLATE1)
+   with (this.PAGETEMPLATE1.TEXT2)
+      height = 235.0
+      left = 360.0
+      top = 936.0
+      width = 3100.0
+      prefixEnable = false
+      text = {||Date()}
+      form.TEXT2 = form.pagetemplate1.text2
+   endwith
+
+   this.PAGETEMPLATE1.TEXT3 = new TEXT(this.PAGETEMPLATE1)
+   with (this.PAGETEMPLATE1.TEXT3)
+      height = 235.0
+      left = 360.0
+      top = 9540.0
+      width = 3100.0
+      prefixEnable = false
+      text = {||this.parent.parent.reportPage}
+      form.TEXT3 = form.pagetemplate1.text3
+   endwith
+
+   with (this.printer)
+      duplex = 1	// None
+      orientation = 2	// Landscape
+      paperSource = 7
+      paperSize = 1
+      resolution = 0	// Default
+      color = 2	// Color
+      trueTypeFonts = 0	// Default
+   endwith
+
+   with (this.reportGroup.footerBand)
+      height = 250.0
+   endwith
+
+   this.reportGroup.footerBand.TEXT1 = new TEXT(this.reportGroup.footerBand)
+   with (this.reportGroup.footerBand.TEXT1)
+      height = 243.0
+      left = 0.0
+      top = 0.0
+      width = 3300.0
+      prefixEnable = false
+      colorNormal = "b+"
+      text = "<b>Grand summary: </b>Count of Qaid No: "
+   endwith
+
+   this.reportGroup.footerBand.TEXT2 = new TEXT(this.reportGroup.footerBand)
+   with (this.reportGroup.footerBand.TEXT2)
+      height = 243.0
+      left = 3348.0
+      top = 0.0
+      width = 2000.0
+      variableHeight = true
+      prefixEnable = false
+      colorNormal = "b+"
+      alignHorizontal = 2	// Right
+      text = {||this.parent.parent.agCount({||this.parent.STREAMSOURCE1.rowset.fields["QAID_No"].value})}
+   endwith
+
+   with (this.reportGroup.headerBand)
+      height = 250.0
+   endwith
+
+   this.firstPageTemplate = this.form.pagetemplate1
+   this.form.pagetemplate1.nextPageTemplate = this.form.pagetemplate1
+   this.form.pagetemplate1.streamframe1.streamSource = this.form.streamsource1
+   this.form.streamsource1.rowset = this.form.qaidopenissues1.rowset
+
+endclass
+

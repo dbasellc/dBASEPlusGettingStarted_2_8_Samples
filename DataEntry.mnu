@@ -1,0 +1,117 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 09/07/2012
+//
+parameter formObj
+new DATAENTRYMENU(formObj, "root")
+
+class DATAENTRYMENU(formObj, name) of MENUBAR(formObj, name)
+   this.MENU2 = new MENU(this)
+   with (this.MENU2)
+      text = "File"
+   endwith
+
+   this.MENU2.CLOSE = new MENU(this.MENU2)
+   with (this.MENU2.CLOSE)
+      onClick = class::CLOSE_ONCLICK
+      text = "Close"
+   endwith
+
+   this.MENU5 = new MENU(this)
+   with (this.MENU5)
+      text = "Edit"
+   endwith
+
+   this.MENU5.ADD = new MENU(this.MENU5)
+   with (this.MENU5.ADD)
+      onClick = class::ADD_ONCLICK
+      text = "Add"
+      shortCut = "Shift+Tab"
+   endwith
+
+   this.MENU5.DELETE = new MENU(this.MENU5)
+   with (this.MENU5.DELETE)
+      onClick = class::DELETE_ONCLICK
+      text = "Delete"
+   endwith
+
+   this.MENU5.EDIT = new MENU(this.MENU5)
+   with (this.MENU5.EDIT)
+      onClick = class::EDIT_ONCLICK
+      text = "Edit"
+   endwith
+
+   this.MENU5.SAVE = new MENU(this.MENU5)
+   with (this.MENU5.SAVE)
+      onClick = class::SAVE_ONCLICK
+      text = "Save"
+   endwith
+
+   this.MENU11 = new MENU(this)
+   with (this.MENU11)
+      text = "&Go"
+   endwith
+
+   this.MENU11.FIRST = new MENU(this.MENU11)
+   with (this.MENU11.FIRST)
+      onClick = class::FIRST_ONCLICK
+      text = "&First"
+   endwith
+
+   this.MENU11.LAST = new MENU(this.MENU11)
+   with (this.MENU11.LAST)
+      onClick = class::LAST_ONCLICK
+      text = "&Last"
+   endwith
+
+   this.MENU11.NEXT = new MENU(this.MENU11)
+   with (this.MENU11.NEXT)
+      onClick = class::NEXT_ONCLICK
+      text = "&Next"
+   endwith
+
+   this.MENU11.PREVIOUS = new MENU(this.MENU11)
+   with (this.MENU11.PREVIOUS)
+      onClick = class::PREVIOUS_ONCLICK
+      text = "&Prev"
+   endwith
+
+
+   function ADD_onClick
+      form.rowset.beginAppend()
+      return
+
+   function CLOSE_onClick
+      form.close()
+      return
+
+   function DELETE_onClick
+      form.rowset.delete()
+      return
+
+   function EDIT_onClick
+      form.rowset.beginEdit()
+      return
+
+   function FIRST_onClick
+      form.rowset.first()
+      return
+
+   function LAST_onClick
+      form.rowset.last()
+      return
+
+   function NEXT_onClick
+      form.rowset.next()
+      return
+
+   function PREVIOUS_onClick
+      form.rowset.next(-1)
+      return
+
+   function SAVE_onClick
+      form.rowset.save()
+      return
+
+endclass
+
