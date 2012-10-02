@@ -1,0 +1,65 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 10/02/2012
+//
+class IssuesByEngineerDATAMODULE of DATAMODULE
+
+   this.aView = new array()
+   with (this.aView)
+      add("engineer1:FirstName:79.00")
+      add("engineer1:LastName:80.00")
+      add("qaid1:Importance:61.00")
+      add("qaid1:QAID_No:86.00")
+      add("qaid1:Open:495.00")
+      add("qaid1:Summary:39.00")
+      add("DATALINK:ENGINEER1")
+      add("ONETOMANY:1")
+   endWith
+
+   with (this)
+      left = -1.0
+      top = -1.0
+   endwith
+
+   this.QAIDDATA1 = new DATABASE()
+   this.QAIDDATA1.parent = this
+   with (this.QAIDDATA1)
+      left = 19.0
+      top = 135.0
+      databaseName = "QAIDDATA"
+      active = true
+   endwith
+
+   this.ENGINEER1 = new QUERY()
+   this.ENGINEER1.parent = this
+   with (this.ENGINEER1)
+      left = 155.0
+      top = 44.0
+      width = 114.0
+      height = 129.0
+      database = form.qaiddata1
+      sql = 'Select * from "engineer"'
+      active = true
+   endwith
+
+   this.QAID1 = new QUERY()
+   this.QAID1.parent = this
+   with (this.QAID1)
+      left = 294.0
+      top = 42.0
+      width = 114.0
+      height = 129.0
+      database = form.qaiddata1
+      sql = 'Select * from "qaid"'
+      active = true
+   endwith
+
+   with (this.QAID1.rowset)
+      indexName = "ENGINEER_NO"
+      masterRowset = form.engineer1.rowset
+      masterFields = "Engineer_No"
+   endwith
+
+
+endclass
+

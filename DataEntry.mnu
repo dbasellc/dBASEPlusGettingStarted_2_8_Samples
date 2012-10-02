@@ -1,6 +1,6 @@
 ** END HEADER -- do not remove this line
 //
-// Generated on 09/07/2012
+// Generated on 10/02/2012
 //
 parameter formObj
 new DATAENTRYMENU(formObj, "root")
@@ -8,43 +8,54 @@ new DATAENTRYMENU(formObj, "root")
 class DATAENTRYMENU(formObj, name) of MENUBAR(formObj, name)
    this.MENU2 = new MENU(this)
    with (this.MENU2)
-      text = "File"
+      text = "&File"
    endwith
 
    this.MENU2.CLOSE = new MENU(this.MENU2)
    with (this.MENU2.CLOSE)
       onClick = class::CLOSE_ONCLICK
-      text = "Close"
+      text = "&Close"
+      shortCut = "Ctrl+C"
    endwith
 
    this.MENU5 = new MENU(this)
    with (this.MENU5)
-      text = "Edit"
+      text = "&Edit"
    endwith
 
    this.MENU5.ADD = new MENU(this.MENU5)
    with (this.MENU5.ADD)
       onClick = class::ADD_ONCLICK
-      text = "Add"
-      shortCut = "Shift+Tab"
+      text = "&Add"
+      shortCut = "Ctrl+A"
    endwith
 
    this.MENU5.DELETE = new MENU(this.MENU5)
    with (this.MENU5.DELETE)
       onClick = class::DELETE_ONCLICK
-      text = "Delete"
+      text = "&Delete"
+      shortCut = "Ctrl+D"
    endwith
 
    this.MENU5.EDIT = new MENU(this.MENU5)
    with (this.MENU5.EDIT)
       onClick = class::EDIT_ONCLICK
-      text = "Edit"
+      text = "&Edit"
+      shortCut = "Ctrl+E"
    endwith
 
    this.MENU5.SAVE = new MENU(this.MENU5)
    with (this.MENU5.SAVE)
       onClick = class::SAVE_ONCLICK
-      text = "Save"
+      text = "&Save"
+      shortCut = "Ctrl+S"
+   endwith
+
+   this.MENU5.ABANDON = new MENU(this.MENU5)
+   with (this.MENU5.ABANDON)
+      onClick = class::ABANDON_ONCLICK
+      text = "A&bandon"
+      shortCut = "Ctrl+B"
    endwith
 
    this.MENU11 = new MENU(this)
@@ -56,26 +67,34 @@ class DATAENTRYMENU(formObj, name) of MENUBAR(formObj, name)
    with (this.MENU11.FIRST)
       onClick = class::FIRST_ONCLICK
       text = "&First"
+      shortCut = "Shift+UpArrow"
    endwith
 
    this.MENU11.LAST = new MENU(this.MENU11)
    with (this.MENU11.LAST)
       onClick = class::LAST_ONCLICK
       text = "&Last"
+      shortCut = "Shift+DnArrow"
    endwith
 
    this.MENU11.NEXT = new MENU(this.MENU11)
    with (this.MENU11.NEXT)
       onClick = class::NEXT_ONCLICK
       text = "&Next"
+      shortCut = "Shift+RightArrow"
    endwith
 
    this.MENU11.PREVIOUS = new MENU(this.MENU11)
    with (this.MENU11.PREVIOUS)
       onClick = class::PREVIOUS_ONCLICK
       text = "&Prev"
+      shortCut = "Shift+LeftArrow"
    endwith
 
+
+   function ABANDON_onClick
+      form.rowset.Abandon()
+      return
 
    function ADD_onClick
       form.rowset.beginAppend()

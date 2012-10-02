@@ -1,6 +1,6 @@
 ** END HEADER -- do not remove this line
 //
-// Generated on 09/07/2012
+// Generated on 10/02/2012
 //
 parameter bModal
 local f
@@ -14,10 +14,10 @@ endif
 
 class DataEntryForm of FORM
    with (this)
-      height = 30.96
+      height = 33.24
       left = 30.6667
       top = 0.12
-      width = 112.6667
+      width = 135.2222
       text = "Qaid"
       menuFile = "DataEntry.mnu"
       escExit = false
@@ -192,10 +192,10 @@ class DataEntryForm of FORM
 
    this.REPORTVIEWER1 = new REPORTVIEWER(this)
    with (this.REPORTVIEWER1)
-      height = 29.12
+      height = 30.8
       left = 2.1111
       top = 0.44
-      width = 108.6667
+      width = 130.8889
       pageno = 2
       filename = "OpenIssues.rep"
    endwith
@@ -206,8 +206,8 @@ class DataEntryForm of FORM
       id = 118
       height = 1.0
       left = 0.0
-      top = 29.96
-      width = 112.6667
+      top = 32.24
+      width = 135.2222
       dataSource = 'ARRAY {"Data Entry","Open Issues Report"}'
    endwith
 

@@ -1,4 +1,4 @@
-Project File generated 09/07/2012 14:04:47
+Project File generated 10/02/2012 08:53:40
 
 [Project]
 Name=DataEntrySDI
@@ -29,9 +29,9 @@ QAIDOpenIssues.sql,0,0,0,
 [DEO]
 
 [INNO]
-ProjectExeFileName=C:\dBASEPlusGettingStarted2.8\DataEntrySDI.exe
+ProjectExeFileName=C:\Users\Kathy Kolosky\Documents\GitHub\dBASEPlusGettingStarted_2_8_Samples\DataEntrySDI.exe
 ProjectMainFileName=\Project\Explorer.iss
-ProjectdBaseVersion=dBASE PLUS 2.80  b2215 (04/25/2012-EN120425)
+ProjectdBaseVersion=dBASE PLUS 2.80  b2222 (09/24/2012-EN120924)
 DefaultDirName={pf}\{#AppName}
 AppName=DataEntry
 AppVersion=1.0.0.0
@@ -40,6 +40,7 @@ dBPlus=true
 dBSeparat=false
 Resource=false
 dBASELang=EN
+dBaseRuntimeInstDir=
 dBaseRuntimeDir=C:\Program Files (x86)\dBASE\Plus\Runtime\PlusRuntime-b2215.exe
 XPLook=false
 dBaseBuild=2215
@@ -102,6 +103,7 @@ INNOINI=false
 INIERRORHANDLING=false
 INITRAP=true
 ININOBDE=false
+UACRB=1
 Icon1={group}\{#AppName} >> {app}\
 Files1=DataEntry.mnO >> DestDir: {app}
 Files2=QAIDOpenIssues.sql >> DestDir: {app}
