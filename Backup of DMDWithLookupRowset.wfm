@@ -1,0 +1,44 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 06/10/2013
+//
+parameter bModal
+local f
+f = new DMDWithLookupRowsetForm()
+if (bModal)
+   f.mdi = false // ensure not MDI
+   f.readModal()
+else
+   f.open()
+endif
+
+class DMDWithLookupRowsetForm of FORM
+   set procedure to IssuesByEngineer.dmd additive
+   with (this)
+      height = 16.0
+      left = 45.0
+      top = 16.92
+      width = 123.4444
+      text = ""
+   endwith
+
+   this.ISSUESBYENGINEERDATAMODULE1 = new ISSUESBYENGINEERDATAMODULE()
+   this.ISSUESBYENGINEERDATAMODULE1.parent = this
+   with (this.ISSUESBYENGINEERDATAMODULE1)
+      left = 26.4444
+      top = 12.76
+   endwith
+
+   this.GRID1 = new GRID(this)
+   with (this.GRID1)
+      dataLink = form.issuesbyengineerdatamodule1.qaid1.rowset
+      height = 8.8
+      left = 2.3333
+      top = 2.2
+      width = 118.2222
+   endwith
+
+   this.rowset = this.issuesbyengineerdatamodule1.qaid1.rowset
+
+endclass
+

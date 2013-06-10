@@ -59,7 +59,7 @@ class IssuesByEngineerDATAMODULE of DATAMODULE
       masterRowset = form.engineer1.rowset
       masterFields = "Engineer_No"
       with (fields["Engineer_No"])
-         lookupSQL = "select Engineer_No, Lastname as Engineer from Engineer"
+         lookupSQL = "select Engineer_No, Lastname, as Engineer from Engineer"
       endwith
    endwith
 

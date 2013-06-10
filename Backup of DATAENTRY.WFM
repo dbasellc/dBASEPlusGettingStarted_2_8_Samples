@@ -225,7 +225,8 @@ class DataEntryForm of FORM
    function PBSETENGINEER_onClick
       if form.rowset.state == 2 or form.rowset.state = 3 //rowset is being edited or appended
          form.rowset.fields["Engineer_No"].value := form.engineer1.rowset.fields["Engineer_No"].value
-         form.SPINBOXENGINEER_NO1.value := form.engineer1.rowset.fields["Engineer_No"].value
+         form.SPINBOXENGINEER_NO1.refresh()
+         //form.SPINBOXENGINEER_NO1.value := form.engineer1.rowset.fields["Engineer_No"].value
       else
          Msgbox("QAID is not in edit or append mode. Cannot change the Engineer No")
       endif

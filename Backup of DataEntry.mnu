@@ -1,6 +1,6 @@
 ** END HEADER -- do not remove this line
 //
-// Generated on 06/10/2013
+// Generated on 10/02/2012
 //
 parameter formObj
 new DATAENTRYMENU(formObj, "root")
@@ -9,8 +9,6 @@ class DATAENTRYMENU(formObj, name) of MENUBAR(formObj, name)
    this.MENU2 = new MENU(this)
    with (this.MENU2)
       text = "&File"
-      uncheckedBitmap = "filename :Glyfx:\Aero\CE\Dbase Aero\BMP\16x16\128\document_open_16.bmp"
-      checkedBitmap = "filename :Glyfx:\Aero\CE\Dbase Aero\BMP\16x16\128\document_open_16_d.bmp"
    endwith
 
    this.MENU2.CLOSE = new MENU(this.MENU2)

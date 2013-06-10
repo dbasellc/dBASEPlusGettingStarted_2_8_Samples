@@ -210,26 +210,19 @@ class DataEntryForm of FORM
       dataSource = 'ARRAY {"Data Entry","Open Issues Report"}'
    endwith
 
-   this.PBSETENGINEER = new PUSHBUTTON(this)
-   with (this.PBSETENGINEER)
-      onClick = class::PBSETENGINEER_ONCLICK
-      height = 1.08
-      left = 58.3333
-      top = 5.72
-      width = 18.6667
-      text = "Set Engineer"
+   this.COMBOBOX1 = new COMBOBOX(this)
+   with (this.COMBOBOX1)
+//      onOpen = class::COMBOBOX1_ONOPEN
+//      beforeDropDown = class::COMBOBOX1_BEFOREDROPDOWN
+//      beforeCloseUp = class::COMBOBOX1_BEFORECLOSEUP
+      height = 1.0
+      left = 27.2222
+      top = 0.44
+      width = 34.2222
+      style = 1	// DropDown
    endwith
 
    this.rowset = this.qaid1.rowset
-
-   function PBSETENGINEER_onClick
-      if form.rowset.state == 2 or form.rowset.state = 3 //rowset is being edited or appended
-         form.rowset.fields["Engineer_No"].value := form.engineer1.rowset.fields["Engineer_No"].value
-         form.SPINBOXENGINEER_NO1.value := form.engineer1.rowset.fields["Engineer_No"].value
-      else
-         Msgbox("QAID is not in edit or append mode. Cannot change the Engineer No")
-      endif
-      return
 
    function TABBOX1_onLeftMouseUp(flags, col, row)
       form.pageNo = this.curSel

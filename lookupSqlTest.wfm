@@ -1,0 +1,58 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 05/09/2013
+//
+parameter bModal
+local f
+f = new LookupSQLForm()
+if (bModal)
+   f.mdi = false // ensure not MDI
+   f.readModal()
+else
+   f.open()
+endif
+
+class LookupSQLForm of FORM
+   with (this)
+      height = 16.0
+      left = 7.1429
+      top = 1.5909
+      width = 125.5714
+      text = ""
+   endwith
+
+   this.FASTDATA1 = new DATABASE(this)
+   with (this.FASTDATA1)
+      left = 36.0
+      top = 9.0
+      databaseName = "DBASESAMPLES"
+      active = true
+   endwith
+
+   this.orders1 = new QUERY(this)
+   with (this.orders1)
+      left = 9.0
+      top = 8.0
+      database = form.fastdata1
+      sql = "select * from ORDERS.DBF"
+      active = true
+   endwith
+
+   with (this.orders1.rowset)
+      with (fields["customerid"])
+         lookupSQL = "select customerid, Company from customers"
+      endwith
+   endwith
+
+   this.GRID1 = new GRID(this)
+   with (this.GRID1)
+      dataLink = form.orders1.rowset
+      height = 12.0
+      left = 3.0
+      top = 0.5
+      width = 107.0
+   endwith
+
+   this.rowset = this.orders1.rowset
+
+endclass

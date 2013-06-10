@@ -1,0 +1,61 @@
+** END HEADER -- do not remove this line
+//
+// Generated on 06/06/2013
+//
+parameter bModal
+local f
+f = new objsForm()
+if (bModal)
+   f.mdi = false // ensure not MDI
+   f.readModal()
+else
+   f.open()
+endif
+
+class objsForm of FORM
+   with (this)
+      height = 16.0
+      left = 86.5
+      top = 0.0
+      width = 40.0
+      text = ""
+   endwith
+
+   this.RECTANGLE1 = new RECTANGLE(this)
+   with (this.RECTANGLE1)
+      left = 15.3333
+      top = 1.96
+      width = 12.0
+      height = 4.0
+      text = "Rectangle1"
+   endwith
+
+   this.BROWSE1 = new BROWSE(this)
+   with (this.BROWSE1)
+      height = 4.0
+      left = 20.7778
+      top = 7.48
+      width = 12.0
+   endwith
+
+   this.PUSHBUTTON1 = new PUSHBUTTON(this)
+   with (this.PUSHBUTTON1)
+      height = 1.08
+      left = 3.7778
+      top = 2.68
+      width = 13.6667
+      text = "Pushbutton1"
+   endwith
+
+   this.COMBOBOX1 = new COMBOBOX(this)
+   with (this.COMBOBOX1)
+      height = 1.0
+      left = 7.7778
+      top = 7.04
+      width = 12.0
+      style = 1	// DropDown
+   endwith
+
+
+endclass
+

@@ -12,13 +12,13 @@ class OpenIssuesReport of REPORT
       autoSort = false
    endwith
 
-   this.QAIDAPP1 = new DATABASE()
+   this.QAIDAPP1 = new DATABASE(this)
    with (this.QAIDAPP1)
       databaseName = "QAIDAPP"
       active = true
    endwith
 
-   this.QAIDBYENGINEEROPEN1 = new QUERY()
+   this.QAIDBYENGINEEROPEN1 = new QUERY(this)
    with (this.QAIDBYENGINEEROPEN1)
       database = form.form.qaidapp1
       sql = "Select engineer.FirstName, engineer.LastName, QAID.QAID_No, QAID.Importance, QAID.Summary From engineer Inner Join QAID On engineer.Engineer_No = QAID.Engineer_No Where QAID." + '"' + "Open" + '"' + " = 'true'  ORDER BY LastName"

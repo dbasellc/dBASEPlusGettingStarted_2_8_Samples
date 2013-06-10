@@ -6,5 +6,6 @@ Select engineer.FirstName,
   QAID.Summary
 From engineer
   Inner Join QAID On engineer.Engineer_No = QAID.Engineer_No
-Where (QAID."Open" = 'false') Or
-  (QAID."Open" Is Null)
+Where QAID."Open" = 'true'
+Order By engineer.LastName,
+  QAID.Importance
